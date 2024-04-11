@@ -8,9 +8,9 @@ pershendetje.push("hjello");
 
 console.log(pershendetje);
 console.log(test);
+
 //template literal
 console.log(`This is a template literal: ${pershendetjeSq[0]}`)
-
 
 let test2 = [];
 for(i=0;i<=1;i++){
@@ -20,6 +20,3 @@ test2.push("c'a ban e la")
 
 console.log(pershendetjeSq);
 console.log(test2)
-
-
-
