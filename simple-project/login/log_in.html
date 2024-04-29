@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Log In </title>
+    <link rel="stylesheet" href="log_in.css">
+</head>
+<body>
+        <!-- <div class="text">
+            <h1>NOTE APP</h1>
+        </div> -->
+    <div class="container">
+        <div class="sign_up">
+            <form>
+                <h1>LogIn</h1>
+                <hr>
+                <input type="text" placeholder="username" name="username" id="username" required>
+                <input type="password" placeholder="password" name="password" id="password" required>
+                <button type="button" onclick="LogIn()" id="login">Log in</button>
+            </form>
+        </div>
+    </div>
+    <div id="popup-container">  
+        <div  id="popup-center" class="popup center">
+            <div class="icon">
+                <i class="fa fa-check-square-o"></i>        
+                <div class="tittle">
+                <p> Success!</p> 
+            </div>
+            <div class="description">
+                <p>You are login in NoteApp with success !</p>
+            </div>
+            <div class="dissmis-btn">
+                <button id="close-popup-btn">
+                    close
+                </button>
+            </div>
+        </div>
+    </div>
+<script src="log_in.js"></script>
+</body>
+</html>
