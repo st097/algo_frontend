@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Note App - Elion Emini</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 class="heading">Note App</h1>
+    <div class="flex-container">
+        <h3 id="welcome"></h3>
+        <button id="logout_btn">Logout</button>
+    </div>
+    <p class="info-text">Double click on a note to remove it</p>
+    <div class="app" id="app">
+      <!-- <textarea
+        cols="30"
+        rows="10"
+        class="note"
+        placeholder="Empty Note"
+      ></textarea> -->
+
+      <button class="btn" id="btn">+</button>
+    </div>
+
+
+    <script type="module">
+        // Import the addNote and getUserNotes functions from notes.js
+        import { addNote, getUserNotes } from './notes.js';
+    
+        // Check if user is logged in
+        let user = JSON.parse(sessionStorage.getItem('user'));
+        if (user) {
+            // If user is logged in, display a welcome message
+            document.getElementById('welcome').textContent = `Welcome, ${user.username}!`;
+    
+            // Display the user's notes
+            let userNotes = getUserNotes(user.id);
+            let appElement = document.getElementById('app');
+            userNotes.forEach(note => {
+                let noteElement = document.createElement('div');
+                noteElement.textContent = `${note.noteTitle}: ${note.noteText}`;
+
+                userNotes.forEach(note => {
+                const noteEl = createNoteEl(note.id, note.noteTitle, note.noteText, note.userId, appEl);
+                appElement.appendChild(noteEl);
+              });
+            });
+    
+            // Add an event listener to the "+" button to call the addNote function when clicked
+            const appEl = document.getElementById('app');
+            const btnEl = document.getElementById('btn');
+            document.getElementById('btn').addEventListener('click', () => addNote(appEl, btnEl));
+        } else {
+            // If user is not logged in, redirect to login.html
+            window.location.href = 'login.html';
+        }
+    </script>
+    <script type="module" src="notes.js"></script>
+    <script type="module" src="index.js"></script>
+
+  </body>
+</html>
