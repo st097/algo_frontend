@@ -121,3 +121,13 @@ body {
     background-color: transparent;
     color: white;
 }
+
+.deletebutton{
+    width: 30px;
+    height: 30px;
+    border: none;
+}
+.updatebutton{
+    width: 30px;
+    height: 30px;
+}

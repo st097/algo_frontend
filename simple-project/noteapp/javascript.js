@@ -6,7 +6,7 @@ var notetext=document.getElementById("notetext")
 
 function logout(){
     localStorage.removeItem("LoginUser")
-    window.location.href='log_in.html'
+    window.location.href='../login/log_in.html'
 }
 
 var randomId = localStorage.getItem('NotelastId'); 
@@ -63,16 +63,22 @@ function GetAllNotes(userInfo) {
 
         var deleteButton = document.createElement("button");
         deleteButton.classList.add("delete-button");
-        deleteButton.textContent = "Delete";
+        // deleteButton.textContent = "Delete";
 
-        // var deleteIcon = document.createElement("img");
-        // deleteIcon.classList.add("image1");
-        // deleteIcon.src = "assets/deletebutton.webp";
-        // deleteButton.appendChild(deleteIcon);
+        var deleteIcon = document.createElement("img");
+        deleteIcon.classList.add("deletebutton");
+        deleteIcon.src = "../assets/deletebutton.webp";
+        deleteButton.appendChild(deleteIcon);
     
         var updateButton = document.createElement("button");
         updateButton.classList.add("update-button");
-        updateButton.textContent = "Update";
+        // updateButton.textContent = "Update";
+
+        var updateicon = document.createElement("img");
+        updateicon.classList.add("updatebutton");
+        updateicon.src = "../assets/editbutton.webp";
+        updateButton.appendChild(updateicon);
+    
         
         buttonContainer.appendChild(deleteButton);
         buttonContainer.appendChild(updateButton);
