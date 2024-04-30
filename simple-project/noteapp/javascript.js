@@ -67,7 +67,7 @@ function GetAllNotes(userInfo) {
 
         var deleteIcon = document.createElement("img");
         deleteIcon.classList.add("deletebutton");
-        deleteIcon.src = "../assets/deletebutton.webp";
+        deleteIcon.src = "../assets/deletebutton.webp.png";
         deleteButton.appendChild(deleteIcon);
     
         var updateButton = document.createElement("button");
@@ -76,7 +76,7 @@ function GetAllNotes(userInfo) {
 
         var updateicon = document.createElement("img");
         updateicon.classList.add("updatebutton");
-        updateicon.src = "../assets/editbutton.webp";
+        updateicon.src = "../assets/editbutton.webp.png";
         updateButton.appendChild(updateicon);
     
         
@@ -129,7 +129,7 @@ function addNote(userInfo) {
 
         var TextArea = document.createElement("textarea");
         TextArea.classList.add("notetext");
-        // TextArea.setAttribute("placeholder", "Empty Note");
+        TextArea.setAttribute("placeholder", "Empty Note");
         TextArea.textContent = "";
 
         var buttonContainer = document.createElement("div");
@@ -137,11 +137,17 @@ function addNote(userInfo) {
 
         var deleteButton = document.createElement("button");
         deleteButton.classList.add("delete-button");
-        deleteButton.textContent = "Delete";
+        var deleteIcon = document.createElement("img");
+        deleteIcon.classList.add("deletebutton");
+        deleteIcon.src = "../assets/deletebutton.webp.png";
+        deleteButton.appendChild(deleteIcon);
 
         var updateButton = document.createElement("button");
         updateButton.classList.add("update-button");
-        updateButton.textContent = "Update";
+        var updateicon = document.createElement("img");
+        updateicon.classList.add("updatebutton");
+        updateicon.src = "../assets/editbutton.webp.png";
+        updateButton.appendChild(updateicon);
         
         buttonContainer.appendChild(deleteButton);
         buttonContainer.appendChild(updateButton);
@@ -163,26 +169,9 @@ function addNote(userInfo) {
         });
         
         CreateNote(userInfo);
-        location.reload()
+        // location.reload()
+        GetAllNotes()
 
     };
 }
 addButton.addEventListener("click", addNote(userInfo));
-
-
-// var  text=document.getElementById("app")
-// function addNote(userInfo) {
-//     return function() {
-//     const empty="Empty Text"
-//     const html=
-//        `
-//       <textarea class="notetext" id="notetext" cols="30" rows="10" placeholder="${empty}">${userInfo.content}</textarea> 
-   
-
-//        `
-//         text.innerHTML+=html
-        
-//         CreateNote(userInfo);
-//     };
-// }
-// addButton.addEventListener("click", addNote(userInfo));

@@ -1,14 +1,8 @@
 body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-family: 'Jost', sans-serif;
     background: linear-gradient(to left, lightblue, lightgreen);
 
 }
-
 
 .container {
     width: 400px;
@@ -17,6 +11,27 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.note {
+    height: 10vh;
+    display: flex;
+    justify-content: flex-start; 
+    margin-left: 20px;
+}
+
+.login {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.copyright {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
 }
 
 .sign_up {
@@ -68,6 +83,7 @@ button:hover {
     display: none; 
     align-items:center;
 }
+
 .fa-check-square-o{
     font-size:50px;
     display: flex; 
@@ -75,6 +91,7 @@ button:hover {
     color:green;
 
 }
+
 .popup.active {
     display: flex;
     position: fixed;
@@ -116,10 +133,3 @@ button:hover {
     padding: 10px;
     color: white;
 }
-/* .image1{
-    width: 10px;
-    height: 10px;
-} */
-
-
-
