@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    background: linear-gradient(to left, lightblue, lightgreen);
+    font-family: "Courier New", Courier, monospace;
+}
+
+.heading {
+    color: darkblue;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 35px;
+}
+
+.info-text {
+    text-align: center;
+    color: darkblue;
+    font-size: 18px;
+}
+
+.app {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}

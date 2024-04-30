@@ -3,24 +3,11 @@ body {
     background: linear-gradient(to left, lightblue, lightgreen);
     font-family: "Courier New", Courier, monospace;
   }
-  
-  .heading {
-    color: darkblue;
-    text-align: center;
-    padding-top: 10px;
-    font-size: 35px;
-  }
 
-  #welcome{
-    color: darkblue;
-    text-align: center;
-    padding-top: 10px;
-    font-size: 25px;
-  }
-  
+
   .info-text {
     text-align: center;
-    color: darkblue;
+    color: black;
     font-size: 18px;
   }
   
@@ -39,7 +26,7 @@ body {
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     font-size: 18px;
     height: 200px;
-    color: darkblue;
+    color: rgb(0, 0, 0);
     border: none;
     outline: none;
     background: rgba(255, 255, 255, 0.1);
@@ -73,3 +60,9 @@ body {
       color: rgba(0, 0, 0, 0.6);
       transition: all 300ms ease;
   }
+
+#welcome{
+  float:right;
+  font-size: x-large;
+  font-weight: bold;
+}
