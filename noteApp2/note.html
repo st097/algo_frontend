@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note App</title>
+    <link reel="shtylesheet" href="note.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+   <nav>
+    <h1>Note App</h1>
+    <div id="logedUser1" >
+    <h2 id="logedUser"></h2>
+    <!--log out button-->
+    <img src="C:\Users\User\Desktop\noteApp2\logout.jfif" alt="logout" onclick="logout()">
+
+    <!--note form-->
+    <div id="allTheForm">
+
+        <div class="noteForm">
+        <input type="text" placeholder="Note title" class="noteInput">
+        <textarea col="30" row="10" class="textArea">
+        </textarea>
+        <button class="delete">
+        <i class="fa fa-trash " aria-hidden="true"></i>
+    </button>
+    <button class="edit">
+        <i class="far fa-edit "></i>
+    </button>
+    </div>
+        
+
+        <button id="btn">+</button>
+
+</div>
+   </nav>
+    
+
+
+   <script src="login.js"></script>
+   <script src="note.js"></script>
+</body>
+</html>
