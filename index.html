@@ -33,41 +33,12 @@
       <button class="btn" id="btn">+</button>
     </div>
 
-
-    <script type="module">
-        // Import the addNote and getUserNotes functions from notes.js
-        import { addNote, getUserNotes } from './notes.js';
-    
-        // Check if user is logged in
-        let user = JSON.parse(sessionStorage.getItem('user'));
-        if (user) {
-            // If user is logged in, display a welcome message
-            document.getElementById('welcome').textContent = `Welcome, ${user.username}!`;
-    
-            // Display the user's notes
-            let userNotes = getUserNotes(user.id);
-            let appElement = document.getElementById('app');
-            userNotes.forEach(note => {
-                let noteElement = document.createElement('div');
-                noteElement.textContent = `${note.noteTitle}: ${note.noteText}`;
-
-                userNotes.forEach(note => {
-                const noteEl = createNoteEl(note.id, note.noteTitle, note.noteText, note.userId, appEl);
-                appElement.appendChild(noteEl);
-              });
-            });
-    
-            // Add an event listener to the "+" button to call the addNote function when clicked
-            const appEl = document.getElementById('app');
-            const btnEl = document.getElementById('btn');
-            document.getElementById('btn').addEventListener('click', () => addNote(appEl, btnEl));
-        } else {
-            // If user is not logged in, redirect to login.html
-            window.location.href = 'login.html';
-        }
-    </script>
+    <footer>
+      <p class="d-flex justify-content-center"><strong>&copy; Copyright 2024 Algorythm.al</strong></h5></p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script type="module" src="DOM.js"></script>
     <script type="module" src="notes.js"></script>
     <script type="module" src="index.js"></script>
   </body>
