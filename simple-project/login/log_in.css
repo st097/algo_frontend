@@ -3,7 +3,6 @@ body {
     background: linear-gradient(to left, lightblue, lightgreen);
 
 }
-
 .container {
     width: 400px;
     height: 400px;
@@ -12,34 +11,29 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 .note {
     height: 10vh;
     display: flex;
     justify-content: flex-start; 
     margin-left: 20px;
 }
-
-.login {
+.login_form {
     height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .copyright {
     height: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;  
 }
-
 .sign_up {
     width: 80%; 
     max-width: 300px; 
     text-align: center;
 }
-
 input {
     width: 100%;
     padding: 10px;
@@ -83,7 +77,6 @@ button:hover {
     display: none; 
     align-items:center;
 }
-
 .fa-check-square-o{
     font-size:50px;
     display: flex; 
@@ -91,7 +84,6 @@ button:hover {
     color:green;
 
 }
-
 .popup.active {
     display: flex;
     position: fixed;
@@ -133,3 +125,6 @@ button:hover {
     padding: 10px;
     color: white;
 }
+
+
+

@@ -1,3 +1,47 @@
+ 
+// import { Add_Initial_data } from '../initialData.js'; // Përdorni '../' për të shkuar në nivelin më të lartë të dosjes.
+// // Add_Initial_data()
+
+users = [
+    {
+      id: 11110000,
+      username: 'Test1',
+      password: 'Test2024',
+      email: 'test1@mail.com',
+    },
+    {
+      id: 11110001,
+      username: 'Test2',
+      password: 'Test2024',
+      email: 'test2@mail.com',
+    },
+  ];
+  notes = [
+    {
+      id: 111224154,
+      noteTitle: 'Note title 1',
+      noteText: 'Note text 1',
+      userId: 11110002,
+    },
+    {
+      id: 111277878,
+      noteTitle: 'Note title 2',
+      noteText: 'Note text 3',
+      userId: 11110002,
+    }
+  ];
+  var Userstorage=localStorage.getItem('users')
+  if(!Userstorage){
+      var array_users=JSON.stringify(users)
+      localStorage.setItem('users',array_users)
+  }
+  var Nodestorage=localStorage.getItem('NoteList')
+  if(!Nodestorage){
+    var array_note=JSON.stringify(notes)
+    localStorage.setItem('NoteList',array_note)
+  }
+
+
 function LogIn(){
     var username=document.getElementById("username").value;
     var password=document.getElementById("password").value;
@@ -14,7 +58,7 @@ function LogIn(){
  
     function findUser(username, password) {
         for (let i = 0; i < user_array.length; i++) {
-            if (user_array[i].username === username && user_array[i].password === password) {
+            if (username !=''&& password !='' && user_array[i].username === username && user_array[i].password === password) {
                 return user_array[i];
             }
         }
@@ -50,5 +94,4 @@ document.getElementById('close-popup-btn').addEventListener('click', function ()
         window.location.href='../noteapp/html.html';
     }, 300); 
 });
-
 

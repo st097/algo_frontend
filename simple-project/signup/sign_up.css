@@ -1,9 +1,9 @@
 body {
-    margin: 0;
+    /* margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     font-family: 'Jost', sans-serif;
     background: linear-gradient(to left, lightblue, lightgreen);
 }
@@ -16,7 +16,24 @@ body {
     justify-content: center;
     align-items: center;
 }
-
+.note {
+    height: 10vh;
+    display: flex;
+    justify-content: flex-start; 
+    margin-left: 20px;
+}
+.sign_up_form {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.copyright {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
 .sign_up {
     width: 80%; 
     max-width: 300px; 

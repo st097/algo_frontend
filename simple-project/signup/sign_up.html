@@ -7,20 +7,25 @@
     <link rel="stylesheet" href="sign_up.css">
 </head>
 <body>
-    <div class="container">
-        <div class="sign_up">
-            <form>
-                <h1>Sign up</h1>
-                <hr>
-                <input type="text" placeholder="Email" name="email" id="email" required>
-                <input type="text" placeholder="username" name="username" id="username" required>
-                <input type="password" placeholder="password" name="password" id="password" required>
-                <button type="button" id="signup" onclick="SignUp()">Sign Up</button>
+    <div class="note">
+        <h1>NOTE APP</h1>
+    </div>
+    <div class="sign_up_form">
+        <div class="container">
+            <div class="sign_up">
+                <form>
+                    <h1>Sign up</h1>
+                    <hr>
+                    <input type="text" placeholder="Email" name="email" id="email" required>
+                    <input type="text" placeholder="username" name="username" id="username" required>
+                    <input type="password" placeholder="password" name="password" id="password" required>
+                    <button type="button" id="signup" onclick="SignUp()">Sign Up</button>
 
-                <p>or <br><button onclick="window.location.href='../login/log_in.html'" id="login">Log in</button></p>
-            </form>
-        </div>
-    </div>  
+                    <p>or <br><button onclick="window.location.href='../login/log_in.html'" id="login">Log in</button></p>
+                </form>
+            </div>
+        </div> 
+    </div>     
     <div id="popup-container">  
         <div  id="popup-center" class="popup center">
             <div class="icon">
@@ -37,6 +42,10 @@
             </div>
         </div>
     </div>
+    </div>  
+    <div class="copyright">
+        <p><b>@copyright 2024  Algorhythem.al</b> </p>
+    </div>      
 <script  src="sign_up.js"></script>
 </body>
 </html>

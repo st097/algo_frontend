@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    position: relative;
     font-family: 'Jost', sans-serif;
     background: linear-gradient(to left, lightblue, lightgreen);
 }
@@ -27,8 +28,18 @@ body {
 
 .rightside .button {
     margin-left: 10px; 
+    border: transparent;
 }
+.footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
 
+}
 .app{
     display: grid;
     grid-template-columns: repeat(auto-fill,
@@ -37,25 +48,11 @@ body {
     justify-content: center;
     padding: 50px;
 }
-/* .notetext{
-    resize: none;
-    padding: 17px;
-    border-radius: 20px;
-    font-size: 18px;
-    height: 200px;
-    color: gray;
-    opacity: 0.2;
-    border: none;
-    box-shadow: 3px 3px 3px 3px rgb(107, 124, 130);
-    background: rgba(255, 255, 255, 0.1);
-    box-sizing: border-box; 
-    
-}  */
 .notetext{
     padding: 17px;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     resize: none;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    /* box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); */
     font-size: 18px;
     height: 200px;
     color: gray;
@@ -64,6 +61,7 @@ body {
     outline: none;
     background: rgba(255, 255, 255, 0.1);
     box-sizing: border-box;
+    border: transparent;
 
 }
 .btn{
@@ -79,11 +77,12 @@ body {
 }
 #addbutton{
     width: 20px;
-    height: 20px; 
+    height: 20px;
 }
 #logoutbutton{
     width: 40px;
     height: 30px;
+    border: transparent;
 }
 
 .note-container {
@@ -91,18 +90,25 @@ body {
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    border: 1px solid;
+    border-radius: 10px;
+    height: 200px;
+    border-color: rgba(255, 255, 255, 0.37);
+    background: rgba(255, 255, 255, 0.27)
+
 }
 
 .textarea-container {
     position: relative;
+    height: 160px;
+    /* background-color: aliceblue; */
 }
 
 .notetext {
     width: 100%;
     padding: 5px;
-    box-sizing: border-box;
-    resize: none;
-    position: relative; 
+    height:160px;
+    background-color: transparent   ;
 }
 
 .button-container {
@@ -120,8 +126,8 @@ body {
     margin-left: 5px;
     background-color: transparent;
     color: white;
+    border: transparent;
 }
-
 .deletebutton{
     width: 30px;
     height: 30px;
@@ -130,4 +136,35 @@ body {
 .updatebutton{
     width: 30px;
     height: 30px;
+}
+.custom-input {
+    width:100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    background-color: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 18px;
+    color: gray;
+    opacity: 0.8;
+}
+#input{
+    background-color: transparent;
+    width: 100%;
+    height: 40px;
+}
+.input-text input::placeholder {
+    font-size: 20px;
+    color: gray; 
+    opacity: 0.8; 
+    font-style: italic; 
+}
+.textarea-container textarea::placeholder{
+    font-size: 20px;
+    color: gray;
+    opacity: 0.8; 
+    font-style: italic;
 }
