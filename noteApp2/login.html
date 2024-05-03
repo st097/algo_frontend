@@ -8,14 +8,19 @@
 </head>
 <body>
     <h1>Note App</h1>
-   <form name="myForm" method="post" action="note.html">
+   <form method="get" action="note.html">
     <div class="loginForm">
     <h3>Login</h3>
-    <input type="text" required id="username">
+    <hr>
+    <div class="inputs">
+    <input type="text" required id="username" placeholder="Username">
     <br>
-    <input type="password" required id="password">
+    <input type="password" required id="password" placeholder="Password">
+</div>
     <br>
+    <!-- <button onclick="logIn()">Log In</button> -->
     <button onclick="logIn()">Log In</button>
+
 </div>
    </form>
 

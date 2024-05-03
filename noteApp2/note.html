@@ -1,45 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Note App</title>
-    <link reel="shtylesheet" href="note.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="note.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
+    />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <div class="navDiv">
+      <nav>
+        <div class="logo">
+          <h1 class="logo1">Note App</h1>
+        </div>
+        <div class="other">
+          <div id="logedUser1">
+            <h2 id="logedUser"></h2>
+          </div>
+          <div class="item">
+            <!--log out button-->
+            <i class="fas fa-sign-out-alt" onclick="logout()"></i>
+          </div>
+        </div>
+      </nav>
+    </div>
 
-   <nav>
-    <h1>Note App</h1>
-    <div id="logedUser1" >
-    <h2 id="logedUser"></h2>
-    <!--log out button-->
-    <img src="C:\Users\User\Desktop\noteApp2\logout.jfif" alt="logout" onclick="logout()">
-
-    <!--note form-->
     <div id="allTheForm">
 
-        <div class="noteForm">
-        <input type="text" placeholder="Note title" class="noteInput">
-        <textarea col="30" row="10" class="textArea">
-        </textarea>
-        <button class="delete">
-        <i class="fa fa-trash " aria-hidden="true"></i>
-    </button>
-    <button class="edit">
-        <i class="far fa-edit "></i>
-    </button>
+        <div>
+
+    <button id="btn"><i class="fa-solid fa-plus"></i></button>
     </div>
-        
 
-        <button id="btn">+</button>
-
-</div>
-   </nav>
+    <!--note form-->
     
+        
+      <div class="noteForm">
+        <input type="text" placeholder="Note title" class="noteInput" />
+        <div class="text-button">
+        <textarea col="30" row="10" class="textArea"> </textarea>
+        <div class="button">
+        <button class="delete">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </button>
+        <button class="edit">
+          <i class="far fa-edit"></i>
+        </button>
+    </div>
+    </div>
+      </div>
 
+      
+    </div>
 
-   <script src="login.js"></script>
-   <script src="note.js"></script>
-</body>
+    <script src="login.js"></script>
+    <script src="note.js"></script>
+  </body>
 </html>

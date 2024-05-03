@@ -20,27 +20,25 @@ const users = [
 ];
 
 function logIn() {
-  let user = document.forms["myForm"]["username"].value;
-  let pass = document.forms["myForm"]["password"].value;
+  let user = document.getElementById('username').value
+  let pass = document.getElementById('password').value
+  console.log(user)
 
   for (i = 0; i < users.length; i++) {
     if (user == users[i].username && pass == users[i].password) {
       const getUser = localStorage.setItem("user", user);
       const getPass = localStorage.setItem("pass", pass);
-       
-      
-     
-      
       return
-
+      
+        
     } else {
-      alert("Error");
-      return
+      return  alert("Wrong username or password!");
+      
     }
   }
 }
 
-window.userName=localStorage.getItem("user")
+const userName = window.localStorage.getItem("user")
 
 
 

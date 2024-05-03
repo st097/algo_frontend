@@ -15,7 +15,7 @@ function logout() {
 // + button function
 
 const plusBtn = document.getElementById("btn");
-const noteForm = document.getElementById("allTheForm");
+const noteForm = document.getElementById("noteForm");
 
 getNotes().forEach((note)=>{
     const noteEl = createNote(note.id, note.title, note.body)

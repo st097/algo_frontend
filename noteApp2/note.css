@@ -1,0 +1,85 @@
+body {
+  background: linear-gradient(to left, lightblue, lightgreen);
+margin: 0px;
+margin-left: 20px;
+}
+
+
+#allTheForm{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,
+    300px);
+    gap: 30px;
+    justify-content: center;
+    padding: 50px;
+   
+
+}
+.navDiv {
+  width: 90%;
+ margin-left: 20px;
+ height: 50vh;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
+}
+
+.logo1{
+   height:20px;
+}
+
+.other{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+
+    
+}
+
+#logedUser1{
+    margin-left: -100px;
+}
+
+.item{
+    margin-top: 25px;
+}
+
+#btn{
+    width:250px;
+    height:250px;
+}
+
+.noteForm{
+    width:255px;
+    height:250px;
+    border: 1px solid black;
+    display:flex;
+    flex-direction: column;
+align-items: center;
+background: green;
+
+}
+
+.noteInput{
+    width:250px;
+    height:30px;
+    border: none;
+    background: green;
+}
+
+.textArea{
+    width:250px;
+    height:200px;
+    resize:none;
+    border: none;
+    background: green;
+}
+
+.button{
+margin-bottom: 5px;
+margin-left: 180px;
+}
