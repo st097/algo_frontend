@@ -1,12 +1,6 @@
-// Load notes from local storage when the page is loaded
-// window.onload = function() {
-//   const savedNotes = localStorage.getItem('note-app');
-//   if (savedNotes) {
-//     notes = JSON.parse(savedNotes);
-//   }
-// };
 
 let notes = JSON.parse(localStorage.getItem('note-app'));
+let currentlyEditing = null;
 
 if (!notes) {
   notes = [
@@ -39,31 +33,76 @@ function debouncedUpdateNote(id, noteTitle, noteText, userId) {
   saveNote();
 }
 
-function createNoteEl(id, noteTitle, noteText, userId, appEl) {
-  const element = document.createElement("textarea");
-  element.id = 'note-' + id;
-  element.classList.add("note");
-  element.classList.add("app");
-  element.placeholder = "Empty Note";
-  element.value = `Title: ${noteTitle}\nContent: ${noteText}`;
+function createNoteEl(id, noteTitle, noteText, userId) {
+ 
+  const noteEl = document.createElement('div');
+  noteEl.classList.add("note");
+  noteEl.classList.add("app");
+  
+  noteEl.id = id;
+  noteEl.innerHTML = `
+  <div class ="note-element z-0">
+    <div class ="textareas position-absolute z-1">
+      <textarea maxlength="23" rows="1" class="note-title" placeholder="Enter new title...">${noteTitle}</textarea>
+      <textarea class="note-textarea" placeholder="Enter note...">${noteText}</textarea>
+    </div>
+    <div class="d-flex flex-row justify-content-end z-2" style="position: absolute; right: 4px; bottom: 0px;">
+      <button class="delete-button btn p-0">
+        <img class="align-middle my-2 mx-1 delete-button" src="./assets/delete.png" width="28px" height="32px">
+      </button>
+      <button class="edit-button btn p-0">
+        <img class="align-middle my-2 mx-1" src="./assets/edit.png" width="27px" height="29px">
+      </button>
+    </div>
+  </div>
+  `;
 
-  element.addEventListener("dblclick", () => {
+  const deleteButton = noteEl.querySelector('.delete-button');
+
+  deleteButton.addEventListener("click", () => {
     const warning = confirm("Do you want to delete this note?");
     if (warning) {
-      deleteNote(id, appEl);
+      deleteNote(id);
     }
   });
 
-  //const debouncedUpdateNote = debounce(updateNote, 300);
+  const editButton = noteEl.querySelector('.edit-button');
 
-  element.addEventListener("input", () => {
-    const lines = element.value.split('\n');
-    const noteTitle = lines[0].replace('Title: ', '');
-    const noteText = lines[1] ? lines[1].replace('Content: ', '') : '';
-    debouncedUpdateNote(id, noteTitle, noteText, userId);
+  editButton.addEventListener("click", () => {
+    if (currentlyEditing && currentlyEditing !== noteEl) {
+      alert('You are already editing a note. Please finish editing that note before editing another one.');
+      return;
+    }
+    currentlyEditing = noteEl;
+    // Code to start editing the note
+    const noteTitle = noteEl.querySelector(".note-title");
+    const noteText = noteEl.querySelector(".note-textarea");
+
+    // Make the note fields editable
+    noteTitle.readOnly = false;
+    noteText.readOnly = false;
+
+    // Focus the title field
+    noteTitle.focus();
+
+    noteEl.addEventListener("input", () => { 
+      if (currentlyEditing !== noteEl) {
+        return;
+      }
+      const noteTitleValue = noteTitle.value; 
+      const noteTextValue = noteText.value;  
+      debouncedUpdateNote(id, noteTitleValue, noteTextValue, userId);
+    });
+    
+    editButton.addEventListener("click", () => {
+      currentlyEditing = null;
+    });
+
   });
 
-  return element;
+  
+
+  return noteEl;
 }
 
 
@@ -71,7 +110,7 @@ function addNote(appEl, btnEl) {
   const userId = JSON.parse(sessionStorage.getItem('user')).id;
   const noteObj = {
     id: Math.floor(Math.random() * 100000),
-    noteTitle: "New Note",
+    noteTitle: "",
     noteText: "",
     userId: userId,
   };
@@ -98,21 +137,17 @@ function updateNote(id, noteTitle, noteText, userId) {
   }
 }
 
-function deleteNote(id, appEl) {
-  const noteElement = document.getElementById('note-' + id);
-  if (noteElement) {
-    // Remove the note element from the DOM
-    noteElement.parentNode.removeChild(noteElement);
+function deleteNote(id) {
+  const appEl = document.getElementById("app");
+  // Find the note element by its id
+  const noteEl = document.getElementById(id);
+
+  if (noteEl) {
+    appEl.removeChild(noteEl);
   }
 
   notes = notes.filter(note => note.id !== id);
   saveNote();
-
-  // Remove the note element from the appEl
-  const noteEl = appEl.querySelector(`#note-${id}`);
-  if (noteEl) {
-    appEl.removeChild(noteEl);
-  }
 
   // Refresh the page
   location.reload();
