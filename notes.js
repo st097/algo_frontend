@@ -53,6 +53,9 @@ function createNoteEl(id, noteTitle, noteText, userId) {
       <button class="edit-button btn p-0">
         <img class="align-middle my-2 mx-1" src="./assets/edit.png" width="27px" height="29px">
       </button>
+      <button class="save-button btn p-0" style="display: none;">
+        <img class="align-middle my-2 mx-1" src="./assets/save.png" width="27px" height="29px">
+      </button>
     </div>
   </div>
   `;
@@ -66,42 +69,55 @@ function createNoteEl(id, noteTitle, noteText, userId) {
     }
   });
 
+
+  const noteTitleEl = noteEl.querySelector(".note-title");
+  const noteTextEl = noteEl.querySelector(".note-textarea");
+
   const editButton = noteEl.querySelector('.edit-button');
-
+  const saveButton = noteEl.querySelector('.save-button');
+  let isEditing = false;
   editButton.addEventListener("click", () => {
-    if (currentlyEditing && currentlyEditing !== noteEl) {
-      alert('You are already editing a note. Please finish editing that note before editing another one.');
-      return;
+    if (isEditing) {
+      // Stop editing and save the note
+      isEditing = false;
+      // Make the note fields not editable
+      noteTitleEl.readOnly = true;
+      noteTextEl.readOnly = true;
+      // Hide save button and show edit and delete buttons
+      saveButton.style.display = "none";
+      editButton.style.display = "block";
+      deleteButton.style.display = "block";
+    } else {
+      // Start editing
+      isEditing = true;
+      // Make the note fields editable
+      noteTitleEl.readOnly = false;
+      noteTextEl.readOnly = false;
+      // Show save button and hide edit and delete buttons
+      saveButton.style.display = "block";
+      editButton.style.display = "none";
+      deleteButton.style.display = "none";
+      // Focus the title field
+      noteTitleEl.focus();
     }
-    currentlyEditing = noteEl;
-    // Code to start editing the note
-    const noteTitle = noteEl.querySelector(".note-title");
-    const noteText = noteEl.querySelector(".note-textarea");
-
-    // Make the note fields editable
-    noteTitle.readOnly = false;
-    noteText.readOnly = false;
-
-    // Focus the title field
-    noteTitle.focus();
-
-    noteEl.addEventListener("input", () => { 
-      if (currentlyEditing !== noteEl) {
-        return;
-      }
-      const noteTitleValue = noteTitle.value; 
-      const noteTextValue = noteText.value;  
-      debouncedUpdateNote(id, noteTitleValue, noteTextValue, userId);
-    });
-    
-    editButton.addEventListener("click", () => {
-      currentlyEditing = null;
-    });
-
   });
 
+  saveButton.addEventListener("click", () => {
+    // Save the note
+    const noteTitleValue = noteTitleEl.value; 
+    const noteTextValue = noteTextEl.value;  
+    debouncedUpdateNote(id, noteTitleValue, noteTextValue, userId);
+    // Stop editing
+    isEditing = false;
+    // Make the note fields not editable
+    noteTitleEl.readOnly = true;
+    noteTextEl.readOnly = true;
+    // Hide save button and show edit and delete buttons
+    saveButton.style.display = "none";
+    editButton.style.display = "block";
+    deleteButton.style.display = "block";
+  });
   
-
   return noteEl;
 }
 
@@ -119,7 +135,10 @@ function addNote(appEl, btnEl) {
 
   notes.push(noteObj);
 
-  saveNote();
+  const editButton = noteEl.querySelector('.edit-button');
+
+  // Set focus to the new note's title field immediately
+  editButton.click();
 }
 
 function getUserNotes(userId) {
