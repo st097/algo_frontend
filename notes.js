@@ -117,6 +117,13 @@ function createNoteEl(id, noteTitle, noteText, userId) {
     editButton.style.display = "block";
     deleteButton.style.display = "block";
   });
+
+  // Prevent the Enter key from being pressed in the title textbox
+  noteTitleEl.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+    }
+  });
   
   return noteEl;
 }

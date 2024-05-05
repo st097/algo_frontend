@@ -18,12 +18,12 @@ if (user) {
   btnEl.addEventListener("click", () => addNote(appEl, btnEl));
 } else {
     // If user is not logged in, redirect to login.html
-    window.location.href = 'login.html';
+    window.location.href = './Login/login.html';
   }
 
 
 const logoutButton = document.getElementById('logout_btn');
 logoutButton.addEventListener('click', function(event) {
     sessionStorage.removeItem('user');
-    window.location.href = 'login.html';
+    window.location.href = './Login/login.html';
 });
