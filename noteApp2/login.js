@@ -24,6 +24,7 @@ function logIn() {
   let pass = document.getElementById('password').value
   console.log(user)
 
+  
   for (i = 0; i < users.length; i++) {
     if (user == users[i].username && pass == users[i].password) {
       const getUser = localStorage.setItem("user", user);
