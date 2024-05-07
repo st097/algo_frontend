@@ -29,6 +29,8 @@ body {
 .rightside .button {
     margin-left: 10px; 
     border: transparent;
+    background-color: transparent;
+
 }
 .footer{
     position: absolute;
@@ -94,9 +96,22 @@ body {
     border-radius: 10px;
     height: 200px;
     border-color: rgba(255, 255, 255, 0.37);
-    background: rgba(255, 255, 255, 0.27)
+    background: rgba(255, 255, 255, 0.27);
 
 }
+.note-container-share{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    border: 1px solid;
+    border-radius: 10px;
+    height: 200px;
+    border-color: rgba(255, 255, 255, 0.37);
+    background: rgba(4, 55, 14, 0.27);
+    
+}
+
 
 .textarea-container {
     position: relative;
@@ -118,8 +133,10 @@ body {
     display: flex;
 }
 
+.share-button,
 .delete-button,
-.update-button {
+.update-button,
+.save-button{
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
@@ -129,7 +146,7 @@ body {
     border: transparent;
 }
 .deletebutton{
-    width: 30px;
+    width: 40px;
     height: 30px;
     border: none;
 }
@@ -137,24 +154,26 @@ body {
     width: 30px;
     height: 30px;
 }
-.custom-input {
-    width:100%;
-    padding: 5px;
-    box-sizing: border-box;
-    border: none;
-    outline: none;
-    background-color: red;
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-size: 18px;
-    color: gray;
-    opacity: 0.8;
+.savebutton{
+    width: 30px;
+    height: 30px;
 }
+.sharebutton{
+    width: 30px;
+    height: 30px;
+}
+
 #input{
     background-color: transparent;
     width: 100%;
     height: 40px;
+    font-size: 20px;
+}
+.input-text input{
+    width: 100%;
+    height: 40px;
+    background-color: transparent;
+    color: gray;
 }
 .input-text input::placeholder {
     font-size: 20px;
@@ -163,7 +182,7 @@ body {
     font-style: italic; 
 }
 .textarea-container textarea::placeholder{
-    font-size: 20px;
+    font-size: 15px;
     color: gray;
     opacity: 0.8; 
     font-style: italic;
