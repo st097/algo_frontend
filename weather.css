@@ -1,0 +1,62 @@
+body{
+    background: linear-gradient(to left, rgba(59, 148, 178, 0.7), rgba(143, 201, 207, 0.7)), url('assets/background.png');
+    background-size: cover;
+    background-position: center;  
+}
+.container{
+    display: flex;
+    justify-content: center;
+
+}
+.description{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.city{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    width: 30%;
+    height: 60%;
+    background-color: wheat;
+    border-radius: 20px;
+}
+.center{
+    display: flex;
+    justify-content: center;
+   
+}
+input{
+    width: 150px;
+    height: 30px;
+    border-radius: 20px;
+    border: transparent;
+    padding: 10px;
+
+}
+button{
+    height: 30px;
+    border-radius: 20px;
+    border: transparent;
+
+}
+.weather-icon{
+    width: 100px;
+    height: 100px;
+}
+
+.weather-info {
+    display: inline-block;
+}
+
+.weather-info span {
+    vertical-align: middle;
+}
+
+.weather-icon-humidity,
+.weather-icon-wind
+{
+    width: 30px; 
+    height: 30px;
+    margin-right: 20px; 
+}
