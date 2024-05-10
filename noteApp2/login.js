@@ -24,18 +24,12 @@ function logIn() {
   let pass = document.getElementById('password').value
   console.log(user)
 
-  
-  for (i = 0; i < users.length; i++) {
-    if (user == users[i].username && pass == users[i].password) {
-      const getUser = localStorage.setItem("user", user);
-      const getPass = localStorage.setItem("pass", pass);
-      return
-      
-        
-    } else {
-      return  alert("Wrong username or password!");
-      
-    }
+  const currentUser = users.find((u) => user === u.username && pass === u.password);
+  if(currentUser){
+    location.replace('./note.html')
+  }
+  else{
+    alert("Wrong username or password")
   }
 }
 

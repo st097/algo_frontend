@@ -1,6 +1,7 @@
 const showUser = document.getElementById("logedUser");
 
-showUser.innerHTML += userName;
+showUser.innerHTML += userName; 
+
 
 //logout function
 console.log(userName);
@@ -123,3 +124,4 @@ function getNotes(){
 }
 
 plusBtn.addEventListener("click", addNote);
+
