@@ -1,13 +1,20 @@
-import { useState } from 'react';
-import './App.css';
+import React, { useState, useContext, createContext} from 'react';
 import Login from './components/Login';
 import { ILoginRequest } from './types/ILogin';
 import Register from './components/Register';
 import { IRegisterRequest } from './types/IRegister';
+//material ui
+import Box from '@mui/material/Box';
+import { Button, IconButton } from '@mui/material';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+
+const ThemeContext = React.createContext("light");
 
 function App() {
+  const [theme, setTheme] = useState('light');
 
-  const [isInfo, setInfo] = useState<boolean>(false)
+  const [isRegisterPage, setIsRegisterPage] = useState<boolean>(true)
+
   const [displayInfo, setDisplayInfo] = useState<ILoginRequest>(
     {
       name:"",
@@ -24,28 +31,39 @@ function App() {
       email: data.email,
       password: data.password
     });
-    setInfo(true);
   }
  
-  return (
-    <div>
-      <div >
-        {
-          isInfo ?
-          <div>
-            <h2>Name: {displayInfo.name}</h2>
-            <h3>Phone: {displayInfo.phone}</h3>
-            <h4>Email: {displayInfo.email}</h4>
-          </div>
-          : <div>NO DATA</div>
-        }
 
-        <Register title='Register component' handleFormData={handleRegisterData} />
-        <Login title='Login component' name={displayInfo.name} email={displayInfo.email} password={displayInfo.password}/>
+  return (
+    <ThemeContext.Provider value={theme}>
+
+      <Box sx={{
+        bgcolor: theme === "dark" ? "#07184a" : "#3f80b5",
+        color: theme === "dark" ? "#dadce3" : "#07184a",
+      }}>
+        <Box sx={{
+          display: "flex",
+          flexDirection: "row",
+          gap: 2,
+          pt: 2,
+          pl: 2,
+        }}>
+          <Button style={{backgroundColor: "#07184a"}} variant="outlined" color="secondary" onClick={()=>setIsRegisterPage(true)}>Register</Button>
+          <Button style={{backgroundColor: "#3f80b5"}} variant="outlined" color="primary" onClick={()=>setIsRegisterPage(false)}>Login</Button>
+          <IconButton style={{backgroundColor: "#3f80b5"}} onClick={() =>  setTheme(theme === 'dark' ? 'light' : 'dark')}>
+            <DarkModeIcon />
+          </IconButton>
+        </Box>
         
-      </div>
-    </div>
+        {isRegisterPage 
+          ? <Register title='Register component' handleFormData={handleRegisterData} />
+          : <Login title='Login component' userData={displayInfo}/>
+        }
+      </Box>
+
+    </ThemeContext.Provider>
   );
 }
 
 export default App;
+export { ThemeContext };
